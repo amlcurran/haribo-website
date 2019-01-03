@@ -1,8 +1,14 @@
+import HariboType from "./HariboItem";
+
 class HariboLoader {
 
-    load() {
+    load(): Promise<Array<HariboType>> {
         return new Promise((resolver, _) => {
-            resolver(['Weingummies', 'Bärchen paarchen', 'Starmix'])
+            resolver([
+                new HariboType('1', 'Weingummies'), 
+                new HariboType('2', 'Bärchen paarchen'),
+                new HariboType('3', 'Starmix')
+            ])
         })
     }
 

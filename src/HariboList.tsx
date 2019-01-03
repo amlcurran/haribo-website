@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
 import LineItem from './LineItem'
 import HariboLoader from './HariboLoader'
+import HariboType from './HariboItem';
 
 interface HariboListState {
-  items: Array<any>
+  items: Array<HariboType>
+}
+interface HariboListProperties {
+  
 }
 
-class HariboList extends Component<any, HariboListState> {
+class HariboList extends Component<HariboListProperties, HariboListState> {
 
-    constructor(props: any) {
+    constructor(props: HariboListProperties) {
       super(props)
       this.state = {
         items: []
@@ -17,14 +21,14 @@ class HariboList extends Component<any, HariboListState> {
   
     render() {
       return (this.state.items.map((item) => {
-        return <LineItem key={item} name={item} />
+        return <LineItem key={item.id} name={item.name} />
       }))
     }
   
     componentDidMount() {
         const loader = new HariboLoader() 
         loader.load()
-            .then((results: any) => {
+            .then((results) => {
                 this.setState({
                     items: results
                 })
