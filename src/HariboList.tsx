@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import LineItem from './LineItem'
 import HariboLoader from './HariboLoader'
-import HariboType from './HariboItem';
+import HariboType from './HariboType';
 
 interface HariboListState {
   items: Array<HariboType>
 }
+
 interface HariboListProperties {
   
 }
@@ -21,7 +22,7 @@ class HariboList extends Component<HariboListProperties, HariboListState> {
   
     render() {
       return (this.state.items.map((item) => {
-        return <LineItem key={item.id} name={item.name} />
+        return <LineItem key={item.id} name={item.name} imageUrl={item.imageLink} />
       }))
     }
   
