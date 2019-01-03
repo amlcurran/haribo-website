@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
-class LineItem extends Component {
+interface LineItemProperties {
+    name: string
+}
+
+class LineItem extends Component<LineItemProperties> {
     render() {
         return (<p>Yummy {this.props.name}</p>)
     }

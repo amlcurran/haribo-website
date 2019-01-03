@@ -2,9 +2,13 @@ import React, { Component } from 'react'
 import LineItem from './LineItem'
 import HariboLoader from './HariboLoader'
 
-class HariboList extends Component {
+interface HariboListState {
+  items: Array<any>
+}
 
-    constructor(props) {
+class HariboList extends Component<any, HariboListState> {
+
+    constructor(props: any) {
       super(props)
       this.state = {
         items: []
@@ -20,7 +24,7 @@ class HariboList extends Component {
     componentDidMount() {
         const loader = new HariboLoader() 
         loader.load()
-            .then((results) => {
+            .then((results: any) => {
                 this.setState({
                     items: results
                 })
