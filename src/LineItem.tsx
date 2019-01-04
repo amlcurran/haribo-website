@@ -8,12 +8,11 @@ interface LineItemProperties {
 class LineItem extends Component<LineItemProperties> {
     render() {
         return (
-            <div>
+            <div className="LineItem-Container">
                 <img 
                     alt="Image of {this.props.name}" 
                     src={this.props.imageUrl.toString()} 
-                    width="100px" 
-                    height="100px"/>
+                    className="LineItem-Image"/>
                 <p>Yummy {this.props.name}</p>
             </div>
         )
