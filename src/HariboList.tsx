@@ -13,6 +13,8 @@ interface HariboListProperties {
 
 class HariboList extends Component<HariboListProperties, HariboListState> {
 
+  loader = new HariboLoader()
+
     constructor(props: HariboListProperties) {
       super(props)
       this.state = {
@@ -27,8 +29,7 @@ class HariboList extends Component<HariboListProperties, HariboListState> {
     }
   
     componentDidMount() {
-        const loader = new HariboLoader() 
-        loader.load()
+        this.loader.load()
             .then((results) => {
                 this.setState({
                     items: results
