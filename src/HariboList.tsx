@@ -8,35 +8,35 @@ interface HariboListState {
 }
 
 interface HariboListProperties {
-  
+
 }
 
 class HariboList extends Component<HariboListProperties, HariboListState> {
 
   loader = new HariboLoader()
 
-    constructor(props: HariboListProperties) {
-      super(props)
-      this.state = {
-        items: []
-      }
-    }
-  
-    render() {
-      return (this.state.items.map((item) => {
-        return <LineItem key={item.id} name={item.name} imageUrl={item.imageLink} />
-      }))
-    }
-  
-    componentDidMount() {
-        this.loader.load()
-            .then((results) => {
-                this.setState({
-                    items: results
-                })
-            })
-      
+  constructor(props: HariboListProperties) {
+    super(props)
+    this.state = {
+      items: []
     }
   }
 
-  export default HariboList;
+  render() {
+    return (this.state.items.map((item) => {
+      return <LineItem key={item.id} name={item.name} imageUrl={item.imageLink} />
+    }))
+  }
+
+  componentDidMount() {
+    this.loader.load()
+      .then((results) => {
+        this.setState({
+          items: results
+        })
+      })
+
+  }
+}
+
+export default HariboList;
